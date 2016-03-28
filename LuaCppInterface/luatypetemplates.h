@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <lua.h>
 
+#include "luastringconversion.h"
+
 template<typename SIG>
 class LuaFunction;
 
@@ -58,25 +60,6 @@ struct popper
 	}
 };
 
-
-#ifdef WIN32
-#include "luastringconversion.h"
-
-DEFINE_TYPE_TEMPLATE_FOR(std::wstring, ,								\
-																		\
-	std::string s = WStrToUTF8(param);								\
-	lua_pushlstring(state.get(), s.c_str(), param.length());			\
-	,																	\
-																		\
-	std::string ss = lua_tostring(state.get(), -1);						\
-	std::wstring res = UTF8ToWStr(ss);								\
-	,																	\
-	LUA_TSTRING															\
-	)
-
-#else
-
-
 // This unusually complicated define is just for the benefit of wstring
 DEFINE_TYPE_TEMPLATE_FOR(std::wstring, ,								\
 																		\
@@ -91,9 +74,6 @@ DEFINE_TYPE_TEMPLATE_FOR(std::wstring, ,								\
 	,																	\
 	LUA_TSTRING															\
 	)
-
-#endif
-
 
 // Special type templates for string literals
 template<size_t N>

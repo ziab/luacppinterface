@@ -4,9 +4,7 @@
 #include "luatypetemplates.h"
 #include "luaerror.h"
 
-#ifndef UNREFERENCED_PARAMETER
-#define UNREFERENCED_PARAMETER( x ) do { (void)(x); } while (0)
-#endif
+#define UNREF_PARAM( x ) do { (void)(x); } while (0)
 
 template<>
 class LuaGenericFunction<void()> : public LuaFunctionBase
@@ -36,7 +34,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -79,7 +77,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -125,7 +123,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -174,7 +172,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -226,7 +224,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -281,7 +279,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -339,7 +337,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -400,7 +398,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
@@ -464,7 +462,7 @@ public:
 		}
 		catch (LuaNil& e)
 		{
-			UNREFERENCED_PARAMETER(e);
+			UNREF_PARAM(e);
 		}
 		return 0;
 	}
