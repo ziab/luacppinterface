@@ -10,7 +10,7 @@ std::wstring UTF8ToWStr(const std::string& utf8str)
 	auto loc = setlocale(LC_ALL, "en_US.UTF-8");
 	wchar_t* wstr_buf = new wchar_t[utf8str.size()];
 	size_t converted = mbstowcs(wstr_buf, utf8str.c_str(), utf8str.size());
-	std::wstring result(wstr_buf);
+	std::wstring result(wstr_buf, utf8str.size());
 	delete[] wstr_buf;
 	setlocale(LC_ALL, original_locale);
 
